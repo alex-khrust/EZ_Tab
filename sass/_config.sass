@@ -1,0 +1,243 @@
+// USER VARIABLES SECTION
+
+$accent: #DC3701 // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #333 // Text Color
+$lineheight: 1.65 // Document Line Height
+$userfont: Gilroy, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+$txt-white: #fff
+$blue: #4276FF
+$orange: #DC3701
+
+// IMPORT SECTION
+
+// @import '../libs/normalize.css/normalize.css' //Normalize CSS
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css') //Normalize CSS
+
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+// @include font('Gilroy', normal, 400, '../fonts/Gilroy/Gilroy-Regular.woff2')
+// @include font('Gilroy', italic, 400, '../fonts/Gilroy/Gilroy-RegularItalic.woff2')
+// @include font('Gilroy', normal, 600, '../fonts/Gilroy/Gilroy-Semibold.woff2')
+// @include font('Gilroy', italic, 600, '../fonts/Gilroy/Gilroy-SemiboldItalic.woff2')
+// @include font('Gilroy', normal, 700, '../fonts/Gilroy/Gilroy-Bold.woff2')
+// @include font('Gilroy', italic, 700, '../fonts/Gilroy/Gilroy-BoldItalic.woff2')
+// @include font('Gilroy', normal, 900, '../fonts/Gilroy/Gilroy-Heavy.woff2')
+// @include font('Gilroy', italic, 900, '../fonts/Gilroy/Gilroy-HeavyItalic.woff2')
+
+// GENERAL DOCUMENT STYLES
+
+*,
+*:before,
+*:after
+	box-sizing: border-box
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+form
+	width: 100%
+	display: grid
+	gap: 20px
+
+input, textarea
+	outline: none
+	// &:invalid:required,
+	&.invalid,
+	&:focus.invalid
+		border-color:  rgba(255, 0, 0, 1)
+		background: #FDFDFD 
+	// &:valid
+	// 	border-color: rgba(80, 212, 68, 1)
+	// &:invalid:required
+	// 	border-color:  rgba(255, 0, 0, 1)
+	// &:valid:required,
+	&.valid,
+	&:focus.valid
+		border-color: rgba(80, 212, 68, 1)
+		background: #FDFDFD
+	&:focus
+		border-color:  rgba(66, 118, 255, 1)
+		background: #FDFDFD 
+
+input, textarea
+	width: 100%
+	height: auto
+	max-width: 327px
+	min-height: 52px
+	padding: 16px
+	background: #F5F5F5
+	border-radius: 12px
+	border: 1px solid transparent
+
+label
+	position: relative
+
+.input-box
+	width: 100%
+	position: relative
+
+.enter__main
+	position: relative
+
+.error
+	width: 100%
+	padding: 35px 16px 13px
+	position: relative
+	// position: absolute
+	// top: 0
+	// right: 0
+	display: grid
+	align-items: center
+	justify-content: center
+	text-align: center
+	font-size: 12px
+	font-weight: 700
+	line-height: 15px
+	color: rgba(240, 55, 56, 1)
+	background: rgba(255, 241, 241, 1)
+	border-radius: 12px
+	opacity: 0
+	visibility: hidden
+	z-index: -1
+	transform: scale(0)
+	transition: transform .2s
+	&::before
+		content: ''
+		width: 16px
+		height: 13px
+		position: absolute
+		left: 50%
+		top: 13px
+		transform: translateX(-50%)
+		background: url("data:image/svg+xml,%3Csvg width='16' height='13' viewBox='0 0 16 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.666504 13H15.3332L7.99984 0.333334L0.666504 13ZM8.6665 11H7.33317V9.66667H8.6665V11ZM8.6665 8.33333H7.33317V5.66667H8.6665V8.33333Z' fill='%23F03738'/%3E%3C/svg%3E%0A") no-repeat
+	&.active
+		opacity: 1
+		visibility: visible
+		z-index: 
+		transform: scale(1)
+	&-inner
+		width: auto
+		padding-left: 25px
+		position: absolute
+		top: -15px
+		right: 0
+		font-size: 12px
+		font-weight: 400
+		line-height: 1
+		color: #000
+		opacity: 0
+		visibility: hidden
+		z-index: -1
+		transform: scale(0)
+		transition: transform .2s
+		&::before
+			content: ''
+			width: 16px
+			height: 13px
+			position: absolute
+			left: 0
+			top: 50%
+			transform: translateY(-60%)
+			background: url("data:image/svg+xml,%3Csvg width='16' height='13' viewBox='0 0 16 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.666504 13H15.3332L7.99984 0.333334L0.666504 13ZM8.6665 11H7.33317V9.66667H8.6665V11ZM8.6665 8.33333H7.33317V5.66667H8.6665V8.33333Z' fill='%23F03738'/%3E%3C/svg%3E%0A") no-repeat
+		&.active
+			opacity: 1
+			visibility: visible
+			z-index: 
+			transform: scale(1)
+
+.registration
+	// &-form
+	// 	position: relative
+	// .error
+	// 	position: absolute
+	// 	bottom: calc(100% + 20px)
+	// 	left: 0
+
+input[type='checkbox']
+	display: none
+	&+span
+		width: 23px
+		height: 23px
+		position: relative
+		display: flex
+		border: 2px solid #636366
+		border-radius: 5px
+		cursor: pointer
+		transition: .2s
+	&:checked + span
+		background: $blue !important
+		border-color: $blue !important
+	&:checked + span:before
+		content: ''
+		width: 8px
+		height: 12px
+		position: absolute
+		top: 6px
+		left: 50%
+		transform: rotate(45deg) translateX(-70%)
+		border-right: 2px solid #fff
+		border-bottom: 2px solid #fff
+	&:disabled + span
+		background: rgba(60, 60, 67, 0.18)
+		border-color: rgba(60, 60, 67, 0.18)
+	&:disabled + span:before
+		content: ''
+		width: 8px
+		height: 12px
+		position: absolute
+		top: 7px
+		left: 50%
+		transform: rotate(45deg) translateX(-70%)
+		border-right: 2px solid #fff
+		border-bottom: 2px solid #fff
+
+.chbx.invalid
+	span
+		border-color: rgba(255, 0, 0, 1) !important
+
+
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+
+.container
+	width: 100%
+	height: auto
+	padding: 0 25px
+	margin: 0 auto
+
+a,
+button,
+.btn
+	transition: .2s ease-in-out
+	-webkit-tap-highlight-color: transparent !important
+	outline: none !important
+	border: none
+
+a
+	font-weight: 700
+	color: #fff
+	text-decoration: none
+	&:hover
+		color: $orange !important
