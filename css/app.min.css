@@ -685,8 +685,15 @@ body {
 
 .input-box.input .has-file .file-icon {
   background: url(../images/icons/file-done.svg) no-repeat;
-  -webkit-animation: loading 1.5s linear;
-          animation: loading 1.5s linear;
+  -webkit-animation: loading-2 2s linear;
+          animation: loading-2 2s linear;
+}
+
+@media (min-width: 768px) {
+  .input-box.input .has-file .file-icon {
+    -webkit-animation: loading 1.5s linear;
+            animation: loading 1.5s linear;
+  }
 }
 
 .input-box.view .file-icon {
@@ -862,6 +869,62 @@ body {
     background: url(../images/icons/loader.svg) no-repeat;
     -webkit-transform: translate(-50%, -50%) rotate(360deg);
             transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loading-2 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+    background: url(../images/icons/loader.svg) no-repeat;
+  }
+  74% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+    background: url(../images/icons/loader.svg) no-repeat;
+  }
+  75% {
+    -webkit-transform: translate(-50%, -50%) scale(75%);
+            transform: translate(-50%, -50%) scale(75%);
+    background: url(../images/icons/file-done.svg) no-repeat;
+  }
+  82.5% {
+    -webkit-transform: translate(-50%, -50%) scale(120%);
+            transform: translate(-50%, -50%) scale(120%);
+    background: url(../images/icons/file-done.svg) no-repeat;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    background: url(../images/icons/file-done.svg) no-repeat;
+  }
+}
+
+@keyframes loading-2 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+    background: url(../images/icons/loader.svg) no-repeat;
+  }
+  74% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+    background: url(../images/icons/loader.svg) no-repeat;
+  }
+  75% {
+    -webkit-transform: translate(-50%, -50%) scale(75%);
+            transform: translate(-50%, -50%) scale(75%);
+    background: url(../images/icons/file-done.svg) no-repeat;
+  }
+  82.5% {
+    -webkit-transform: translate(-50%, -50%) scale(120%);
+            transform: translate(-50%, -50%) scale(120%);
+    background: url(../images/icons/file-done.svg) no-repeat;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    background: url(../images/icons/file-done.svg) no-repeat;
   }
 }
 
