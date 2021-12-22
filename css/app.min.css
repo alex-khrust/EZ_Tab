@@ -635,6 +635,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 40px;
   z-index: 2;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 .label-input-file {
@@ -715,6 +716,7 @@ body {
   border-radius: 20px;
   -webkit-transition: .3s;
   transition: .3s;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 .select-wrapper:hover {
