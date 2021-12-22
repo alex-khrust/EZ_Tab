@@ -230,7 +230,6 @@ input[type='checkbox']:disabled + span:before {
 }
 
 body {
-  font-family: Gilroy, sans-serif;
   font-size: 16px;
   line-height: 1.65;
   color: #333;
@@ -248,7 +247,8 @@ body {
 
 a,
 button,
-.btn {
+.btn,
+input {
   -webkit-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
   -webkit-tap-highlight-color: transparent !important;
@@ -362,7 +362,10 @@ body {
   background: url("../images/background-page.jpg") no-repeat;
   background-position: center;
   background-size: cover;
-  overflow-x: hidden;
+}
+
+.locked {
+  overflow: hidden;
 }
 
 .header {
@@ -371,6 +374,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 99;
 }
 
 .header__inner {
@@ -383,15 +387,22 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  .header__inner {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 .header .logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -405,12 +416,20 @@ body {
   white-space: nowrap;
 }
 
+@media (min-width: 768px) {
+  .header .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 @media (max-width: 767px) {
   .header .menu {
     width: 124px;
     height: auto;
     padding: 16px;
-    position: absolute;
+    position: fixed;
     background: #272221;
     border-radius: 10px;
     top: 104px;
@@ -421,7 +440,7 @@ body {
     z-index: 999;
   }
   .header .menu.open {
-    right: 25px;
+    right: 20px;
     opacity: 1;
   }
 }
@@ -486,6 +505,7 @@ body {
     -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+    white-space: nowrap;
   }
   .header .menu__link:hover {
     background: #DC3701;
@@ -522,7 +542,13 @@ body {
 .main .container {
   width: 100%;
   max-width: 1116px;
-  margin: 162px auto 77px;
+  margin: 67px auto 77px;
+}
+
+@media (min-width: 768px) {
+  .main .container {
+    margin: 162px auto 77px;
+  }
 }
 
 .main .title {

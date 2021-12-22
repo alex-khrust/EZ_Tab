@@ -29,10 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		$(".header .menu").toggleClass("open");
 		$("body").toggleClass("locked");
 	});
-	$(".header .menu a").click(function () {
-		$('.header .menu').toggleClass("open");
-		$('#navToggle').toggleClass("active");
-	});
+	// $(".header .menu a").click(function () {
+	// 	$('.header .menu').toggleClass("open");
+	// 	$('#navToggle').toggleClass("active");
+	// });
+	
+	// $(document).mouseup(function (e) {
+	// 	var block = $(".header .menu");
+	// 	if (!block.is(e.target) && block.has(e.target).length === 0) {
+	// 		block.removeClass("open");
+	// 		$("#navToggle").removeClass("active");
+	// 		$("body").removeClass("locked");
+	// 	}
+	// });
+
 
 	// Кастомный select
 	$('select').each(function (index) {
@@ -102,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				var fileName = '';
 				if (element.target.value) fileName = element.target.value.split('\\').pop();
 				fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
-				setTimeout(function (){
+				setTimeout(function () {
 					$('#btn-submit').toggleClass('active');
 					$('.output-file').addClass('has-file');
 				}, 1500);

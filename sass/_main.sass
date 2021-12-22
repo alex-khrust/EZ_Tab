@@ -10,8 +10,9 @@ body
   background: url('../images/background-page.jpg') no-repeat
   background-position: center
   background-size: cover
-  overflow-x: hidden
 
+.locked
+  overflow: hidden
 
 .header
   width: 100%
@@ -19,16 +20,19 @@ body
   position: absolute
   top: 0
   left: 0
+  z-index: 99
   &__inner
     max-width: 1344px
     padding: 32px 0
     margin: 0 auto
     display: flex
     align-items: center
-    justify-content: space-between
-
+    justify-content: flex-end
+    overflow-x: hidden
+    @media (min-width: 768px)
+      justify-content: space-between
   .logo
-    display: flex
+    display: none
     align-items: center
     gap: 16px 
     &__image
@@ -37,13 +41,15 @@ body
       font-weight: bold
       color: #fff
       white-space: nowrap
+    @media (min-width: 768px)
+      display: flex
 
   .menu
     @media (max-width: 767px)
       width: 124px
       height: auto
       padding: 16px
-      position: absolute
+      position: fixed
       background: #272221
       border-radius: 10px
       top: 104px
@@ -52,7 +58,7 @@ body
       transition: .3s
       z-index: 999
       &.open
-        right: 25px
+        right: 20px
         opacity: 1
 
     nav
@@ -85,6 +91,7 @@ body
         background: #464241
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)
         border-radius: 10px
+        white-space: nowrap
         &:hover
           background: #DC3701
           color: #fff !important
@@ -111,7 +118,9 @@ body
   .container
     width: 100%
     max-width: 1116px
-    margin: 162px auto 77px
+    margin: 67px auto 77px
+    @media (min-width: 768px)
+      margin: 162px auto 77px
   .title
     margin: 0
     font-weight: bold
