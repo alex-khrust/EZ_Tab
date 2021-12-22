@@ -565,12 +565,17 @@ body {
 }
 
 .main .subtitle {
-  max-width: 250px;
   display: inline-block;
   font-weight: bold;
   font-size: 14px;
   line-height: 25px;
   color: #fff;
+}
+
+@media (min-width: 768px) {
+  .main .subtitle {
+    max-width: 250px;
+  }
 }
 
 .main__inner {
@@ -598,7 +603,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  gap: 80px;
+  gap: 32px;
 }
 
 @media (min-width: 768px) {
@@ -694,8 +699,19 @@ body {
           animation: zoom ease-in-out 1s;
 }
 
-.input-box.view .btn {
-  margin-top: 88px;
+.input-box.view .box {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .input-box.view .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .input-box.view .btn {
+    margin-top: 88px;
+  }
 }
 
 .select-wrapper {

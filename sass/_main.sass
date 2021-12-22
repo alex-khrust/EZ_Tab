@@ -130,12 +130,13 @@ body
     line-height: 91px
     color: #fff
   .subtitle
-    max-width: 250px
     display: inline-block
     font-weight: bold
     font-size: 14px
     line-height: 25px
     color: #fff
+    @media (min-width: 768px)
+      max-width: 250px
 
   &__inner
     width: 100%
@@ -151,7 +152,7 @@ body
   align-items: center
   justify-content: center
   flex-flow: column
-  gap: 80px
+  gap: 32px
   @media (min-width: 768px)
     align-items: flex-start
     justify-content: space-between
@@ -225,8 +226,13 @@ body
       background: url(../images/icons/file-done.svg) no-repeat
       // transition: background 2s
       animation: zoom ease-in-out 1s
-  .btn
-    margin-top: 88px
+  .box
+    display: none
+  @media (min-width: 768px)
+    .box
+      display: flex
+    .btn
+      margin-top: 88px
 
 .select-wrapper
   width: 100%
