@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// hamburger и menu
 	$("#navToggle").click(function () {
-		$(this).toggleClass("active");
+		// $(this).toggleClass("active");
 		$(".header .menu").toggleClass("open");
 		$("body").toggleClass("locked");
 	});
@@ -34,14 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 	$('#navToggle').toggleClass("active");
 	// });
 	
-	// $(document).mouseup(function (e) {
-	// 	var block = $(".header .menu");
-	// 	if (!block.is(e.target) && block.has(e.target).length === 0) {
-	// 		block.removeClass("open");
-	// 		$("#navToggle").removeClass("active");
-	// 		$("body").removeClass("locked");
-	// 	}
-	// });
+	$(document).mouseup(function (e) {
+		var block = $(".header .menu");
+		if (!block.is(e.target) && block.has(e.target).length === 0) {
+			block.removeClass("open");
+			$("#navToggle").removeClass("active");
+			$("body").removeClass("locked");
+		}
+	});
 
 
 	// Кастомный select
