@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		var block = $(".header .menu");
 		if (!block.is(e.target) && block.has(e.target).length === 0) {
 			block.removeClass("open");
-			$("#navToggle").removeClass("active");
+			// $("#navToggle").removeClass("active");
 			$("body").removeClass("locked");
 		}
 	});

@@ -236,20 +236,25 @@ body
     .btn
       margin-top: 88px
 
-.select-wrapper
-  width: 100%
+.select-wrapper,
+.wrap-select
+  width: 100% !important
   height: 56px
-  padding: 16px
   display: flex
-  justify-content: space-between
   align-items: center
   color: #fff
   background: #35302F
   border-radius: 20px
   transition: .3s
   -webkit-tap-highlight-color: transparent !important
-  &:hover
-    background: $orange
+
+.select-wrapper
+  // padding: 16px
+  position: relative
+  &>span
+    position: absolute
+    left: 16px
+    z-index: 2
 
 .form-select
 
