@@ -26,11 +26,10 @@ select
   padding: 0
   padding-left: 168px
   overflow: hidden
-  // background: inherit
+  background: transparent
   color: #fff
   border-radius: 3px
   position: relative
-  z-index: 1
   &::after
     content: ''
     width: 10px
@@ -59,21 +58,20 @@ select
   width: 100%
   margin: 0
   padding: 20px 48px 8px
-  background: $main-col
+  background: #35302F
   color: $main-col
   text-align: center
   border-radius: 0px 0px 20px 20px
-  display: grid
-  align-items: end
-  justify-content: end
-  gap: 16px
   li
     list-style: none
     width: 110px
     padding: 8px
+    margin: 8px 0
+    margin-left: auto
     display: flex
     align-items: center
     justify-content: center
+    line-height: 1
     color: #fff
     &:hover,
     &::selection,
@@ -81,6 +79,10 @@ select
       background: $orange
       border-radius: 8px
       color: #fff
+    &:first-child
+      margin-top: 0
+    &:last-child
+      margin-bottom: 0
 
 //RESPONSIVE DEMO
 // @media screen and (max-width: 650px)

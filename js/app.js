@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 	$('.header .menu').toggleClass("open");
 	// 	$('#navToggle').toggleClass("active");
 	// });
-	
 	$(document).mouseup(function (e) {
 		var block = $(".header .menu");
 		if (!block.is(e.target) && block.has(e.target).length === 0) {
@@ -97,31 +96,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// End select each loop 
 	});
+	
 
 
 	//  Стилизация input file
-	(function () {
-		'use strict';
+	$('.input-file').each(function () {
+		var $input = $(this),
+			$label = $input.closest('.label-input-file'),
+			labelVal = $label.html();
 
-		$('.input-file').each(function () {
-			var $input = $(this),
-				$label = $input.closest('.label-input-file'),
-				labelVal = $label.html();
+		// Провеврка инпута на наличие класса has-file
+		if ($('.input .label-input-file').hasClass('has-file')) {
+			$('.input .label-input-file').removeClass('pulse');
+		} else {
+			$('.input .label-input-file').addClass('pulse');
+		};
+		// При изминении состояния инпута
+		$('.input .label-input-file').change(function() {
+			if ($(this).hasClass('has-file')) {
+				$(this).removeClass('pulse');
+				// Провеврка .select-wrapper на .disabled
+				if ($('.select-wrapper').hasClass('disabled')) {
+					setTimeout(function () {
+						$('.select-wrapper').removeClass('disabled');
+						$('.select-wrapper').addClass('pulse');
+					}, 1500);
 
-			$input.on('change', function (element) {
-				var fileName = '';
-				if (element.target.value) fileName = element.target.value.split('\\').pop();
-				fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
-				setTimeout(function () {
-					$('#btn-submit').toggleClass('active');
-					$('.output-file').addClass('has-file');
-				}, 1500);
-			});
+				}
+			}
 		});
 
-	})();
+		$('.select-wrapper .custom-select-items li').on('click', function(){
+			if ($('#btn-submit').hasClass('disabled')) {
+				$('.select-wrapper').remuveClass('pulse');
+				$('#btn-submitr').removeClass('disabled');
+				$('#btn-submit').addClass('pulse');
+			}
+		});
 
 
+		$input.on('change', function (element) {
+			var fileName = '';
+			if (element.target.value) fileName = element.target.value.split('\\').pop();
+			fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
+			
+			setTimeout(function () {
+				// $('#btn-submit').removeClass('disabled');
+				$('.output-file').addClass('has-file');
+			}, 1500);
+		});
+	});
+
+	
+
+	//POPUP
+	$(".open-popup").on("click", function (e) {
+		e.preventDefault();
+    var dataPopup = $('.' + $(this).attr("data-popup"));
+		$(".popup").removeClass("open");
+    $(dataPopup).addClass("open");
+		$('header, main, footer').addClass('blur');
+    $("body").addClass("locked");
+  });
+
+	$(document).mouseup(function (e) {
+		var popup = $(".popup__box");
+		if (!popup.is(e.target) && popup.has(e.target).length === 0) {
+			$("body").removeClass("locked");
+			$('header, main, footer').removeClass('blur');
+			$(".popup").removeClass("open");
+		}
+	}); 
 
 	// =======
 })
