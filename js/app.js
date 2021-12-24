@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		var sel = $(this);
 
-		// MAKE CUSTOM SELECT ELEMENTS
-		// index here used to identify select element if more
-		// than one in the page
+	// 	// MAKE CUSTOM SELECT ELEMENTS
+	// 	// index here used to identify select element if more
+	// 	// than one in the page
 		sel.wrap('<div class="wrap-select wrap-select-' + index + '"></div>');
 		var $wrap_sel = $('.wrap-select-' + index);
 
@@ -94,12 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		});
 
-		// End select each loop 
+	// 	// End select each loop 
 	});
 	
 
 
-	//  Стилизация input file
+	//Последовательная активация элементов
 	$('.input-file').each(function () {
 		var $input = $(this),
 			$label = $input.closest('.label-input-file'),
@@ -126,15 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 
-		$('.select-wrapper .custom-select-items li').on('click', function(){
-			if ($('#btn-submit').hasClass('disabled')) {
-				$('.select-wrapper').remuveClass('pulse');
-				$('#btn-submitr').removeClass('disabled');
-				$('#btn-submit').addClass('pulse');
-			}
-		});
-
-
 		$input.on('change', function (element) {
 			var fileName = '';
 			if (element.target.value) fileName = element.target.value.split('\\').pop();
@@ -147,6 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
+	$('.select-wrapper .custom-select-items').on('click', 'li', function(){
+		$('.select-wrapper').remuveClass('pulse');
+		$('#btn-submit').removeClass('disabled');
+		$('#btn-submit').addClass('pulse');
+		// if ($('#btn-submit').hasClass('disabled')) {
+		// }
+	});
 	
 
 	//POPUP

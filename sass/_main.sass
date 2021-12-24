@@ -176,10 +176,11 @@ body
   aspect-ratio: 1 / 1
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.25) 0.01%, rgba(255, 255, 255, 0) 100%)
   backdrop-filter: blur(2px)
-  border: 1px solid rgba(255, 255, 255, 0.1)
+  border: 2px solid rgba(255, 255, 255, 0.1)
   border-radius: 40px
   z-index: 2
   -webkit-tap-highlight-color: transparent !important
+  // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)
 
 .label-input-file
   width: 100%
@@ -261,6 +262,7 @@ body
     position: absolute
     left: 16px
     z-index: 1
+
 
 .form-select
 
@@ -386,10 +388,10 @@ body
 @keyframes pulse
   0%
     // filter: drop-shadow(0 0 0 rgba(220, 54, 4, 0.8))
-    box-shadow: 0 0 0 0 rgba(220, 54, 4, 0.8)
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0.8)
   70%
     // filter: drop-shadow(0 0 10px rgba(220, 54, 4, 0))
-    box-shadow: 0 0 0 10px rgba(220, 54, 4, 0)
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(220, 54, 4, 0)
   100%
     // filter: drop-shadow(0 0 0 rgba(220, 54, 4, 0))
-    box-shadow: 0 0 0 0 rgba(220, 54, 4, 0)
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0)
