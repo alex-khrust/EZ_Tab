@@ -1215,10 +1215,10 @@ select {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 20px;
   z-index: -9999;
   visibility: hidden;
   opacity: 0;
+  overflow: hidden;
   -webkit-transition: .3s;
   transition: .3s;
 }
@@ -1231,11 +1231,28 @@ select {
   opacity: 1;
 }
 
-.popup__box {
+.popup__container {
   width: 100vw;
   height: 100vh;
+  padding: 25px 15px;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: auto;
+}
+
+.popup__box {
+  width: 100%;
+  height: 100%;
   max-width: 512px;
   max-height: 460px;
+  padding: 64px 25px;
   display: -ms-grid;
   display: grid;
   -webkit-box-pack: center;
@@ -1244,11 +1261,9 @@ select {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 25px;
   position: relative;
   background: linear-gradient(135deg, #272221 0%, #514948 100%);
   border-radius: 40px;
-  overflow: auto;
   -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   z-index: 99;
@@ -1290,6 +1305,7 @@ select {
 
 .popup-thanks .popup__box,
 .notfication .popup__box {
+  width: 100vw;
   max-width: 318px;
   max-height: 318px;
 }
