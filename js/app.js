@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
 
 			// Действия по клику submit
-			$('#btn-submit').on('click', function () {
+			$('#btn-submit').on('click', function btnSubmit () {
 				$('.select-wrapper').removeClass('pulse');
 				setTimeout(function () {
 					$('#btn-submit').removeClass('pulse');
@@ -164,6 +164,26 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 	
+	$('.btn').on('click', function() {
+		$(this).removeClass('pulse');
+	});
+
+	if ($(window).width() <= 768) {
+		$('.view .btn').hide();
+		$('#btn-submit').on('click', function() {
+			$('.select-wrapper').hide();
+			$('#btn-submit').hide();
+			$('.view .btn').show();
+		});
+	};
+	$(window).on('resize', function(){
+    if ($(this).width() <= 768) {
+			$('.view .btn').hide();
+		}
+    if ($(this).width() >= 768) {
+			$('.view .btn').show();
+		}
+	});
 
 	//POPUP open/close
 	$(".open-popup").on("click", function (e) {
