@@ -1,27 +1,6 @@
 // Custom JS
 document.addEventListener('DOMContentLoaded', () => {
 
-	// Анимация спинера загрузки кнопок авторизации
-	$('.sign-up .enter__main button.btn').on('click', function () {
-		let $this = $(this);
-		$this.addClass('loading');
-		setTimeout(function () {
-			$this.removeClass('loading');
-		}, 2000)
-	});
-
-	// Показать/скрыть пароль в input password
-	$('.password').on('click', '.password-control', function () {
-		let $inputPswrd = $(this).closest('.password').find('input')
-		if ($inputPswrd.attr('type') == 'password') {
-			$(this).addClass('view');
-			$inputPswrd.attr('type', 'text');
-		} else {
-			$(this).removeClass('view');
-			$inputPswrd.attr('type', 'password');
-		}
-		return false;
-	});
 
 	// hamburger и menu
 	$("#navToggle").click(function () {
@@ -45,12 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Кастомный select
 	$('select').each(function (index) {
-
 		var sel = $(this);
 
-	// 	// MAKE CUSTOM SELECT ELEMENTS
-	// 	// index here used to identify select element if more
-	// 	// than one in the page
+		// 	// MAKE CUSTOM SELECT ELEMENTS
+		// 	// index here used to identify select element if more
+		// 	// than one in the page
 		sel.wrap('<div class="wrap-select wrap-select-' + index + '"></div>');
 		var $wrap_sel = $('.wrap-select-' + index);
 
@@ -70,13 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 
-
 		//DISPLAY CUSTOM OPTIONS HANDLER
 		$custom_select.on('click', function () {
 			$(this).toggleClass('active');
 			$sel_items.slideToggle();
 		});
-
 
 		//ITEM SELECTION
 		$sel_items.children('li').on('click', function () {
@@ -94,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		});
 
-	// 	// End select each loop 
+		// 	// End select each loop 
 	});
-	
+
 
 
 	//Последовательная активация элементов
@@ -112,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			$('.input .label-input-file').addClass('pulse');
 		};
 		// При изминении состояния инпута
-		$('.input .label-input-file').change(function() {
+		$('.input .label-input-file').change(function () {
 			if ($(this).hasClass('has-file')) {
 				$(this).removeClass('pulse');
 				// Провеврка .select-wrapper на .disabled
@@ -120,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					setTimeout(function () {
 						$('.select-wrapper').removeClass('disabled');
 						$('.select-wrapper').addClass('pulse');
-					}, 1500);
+					}, 30000);
 
 				}
 			}
@@ -130,32 +106,72 @@ document.addEventListener('DOMContentLoaded', () => {
 			var fileName = '';
 			if (element.target.value) fileName = element.target.value.split('\\').pop();
 			fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
-			
+
+			// setTimeout(function () {
+			// 	// $('#btn-submit').removeClass('disabled');
+			// 	$('.output-file').addClass('has-file');
+			// }, 1500);
+
+			// Открытие .popup-timer через 30 секунд и запуск таймера
 			setTimeout(function () {
-				// $('#btn-submit').removeClass('disabled');
-				$('.output-file').addClass('has-file');
-			}, 1500);
+				$('.popup-timer').addClass('open');
+				$('header, main, footer').addClass('blur');
+				$("body").addClass("locked");
+				
+				// Запуск таймера
+				var timer = $('.timer');
+				function clearCountdown(interval) {
+					clearTimeout(interval);
+				}
+				function countdown() {
+					var countdownBegin = 30;
+					var count = setInterval(function () {
+						console.log(countdownBegin);
+
+						if (countdownBegin <= 0) {
+							timer.html('Done!');
+							clearCountdown(count);
+							// Анимация иконки .output-file и активация .view .btn
+							setTimeout(function () {
+								$(".popup").removeClass("open");
+								$("body").removeClass("locked");
+								$('header, main, footer').removeClass('blur');
+								setTimeout(function () {
+									// $('#btn-submit').removeClass('disabled');
+									$('.view .btn').removeClass('disabled').addClass('pulse');
+									$('.output-file').addClass('has-file');
+								}, 1500);
+							}, 1000);
+						} else {
+							--countdownBegin;
+							timer.html(countdownBegin);
+						}
+					}, 1000);
+				}
+				countdown();
+			}, 3000);
+			
 		});
 	});
 
-	$('.select-wrapper .custom-select-items').on('click', 'li', function(){
+	$('.select-wrapper .custom-select-items').on('click', 'li', function () {
 		$('.select-wrapper').remuveClass('pulse');
 		$('#btn-submit').removeClass('disabled');
 		$('#btn-submit').addClass('pulse');
 		// if ($('#btn-submit').hasClass('disabled')) {
 		// }
 	});
-	
 
-	//POPUP
+
+	//POPUP open/close
 	$(".open-popup").on("click", function (e) {
 		e.preventDefault();
-    var dataPopup = $('.' + $(this).attr("data-popup"));
+		var dataPopup = $('.' + $(this).attr("data-popup"));
 		$(".popup").removeClass("open");
-    $(dataPopup).addClass("open");
+		$(dataPopup).addClass("open");
 		$('header, main, footer').addClass('blur');
-    $("body").addClass("locked");
-  });
+		$("body").addClass("locked");
+	});
 
 	$(document).mouseup(function (e) {
 		var popup = $(".popup__box");
@@ -164,7 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			$('header, main, footer').removeClass('blur');
 			$(".popup").removeClass("open");
 		}
-	}); 
+	});
+
 
 	// =======
 })

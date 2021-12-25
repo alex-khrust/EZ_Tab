@@ -853,7 +853,7 @@ body {
   }
 }
 
-.pass {
+.path {
   fill: transparent;
   stroke: #DC3701;
   stroke-width: 1.5px;
@@ -1295,7 +1295,8 @@ select {
 }
 
 .popup-thanks,
-.notfication {
+.notfication,
+.popup-timer {
   display: -ms-grid;
   display: grid;
   -ms-flex-line-pack: center;
@@ -1306,14 +1307,90 @@ select {
 }
 
 .popup-thanks .popup__box,
-.notfication .popup__box {
+.notfication .popup__box,
+.popup-timer .popup__box {
   width: 100vw;
   max-width: 318px;
   max-height: 318px;
 }
 
 .popup-thanks .popup__content,
-.notfication .popup__content {
+.notfication .popup__content,
+.popup-timer .popup__content {
   justify-items: center;
   gap: 16px;
+}
+
+.popup-timer .popup__box {
+  padding: 15px;
+}
+
+.popup-timer .popup__content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  position: relative;
+  gap: 5px;
+}
+
+.popup-timer.open .svg-wrap {
+  position: relative;
+}
+
+.popup-timer.open .popup-title {
+  margin: 0;
+}
+
+@-webkit-keyframes circletimer {
+  0% {
+    stroke-dashoffset: 500;
+    stroke-dasharray: 500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 500;
+  }
+}
+
+@keyframes circletimer {
+  0% {
+    stroke-dashoffset: 500;
+    stroke-dasharray: 500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 500;
+  }
+}
+
+.popup-timer.open svg {
+  background-color: transparent;
+  -webkit-transform: rotateZ(-90deg);
+          transform: rotateZ(-90deg);
+}
+
+.popup-timer.open svg .circle {
+  stroke: #DC3701;
+  stroke-width: 16;
+  fill: transparent;
+  stroke-dashoffset: 500;
+  stroke-dasharray: 0;
+  -webkit-animation: 30s circletimer linear;
+          animation: 30s circletimer linear;
+}
+
+.popup-timer.open .timer {
+  position: absolute;
+  display: block;
+  top: 47%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #DC3701;
+  font-size: 42px;
+  font-weight: 700;
 }

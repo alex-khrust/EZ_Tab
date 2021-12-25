@@ -62,7 +62,8 @@
       margin-top: 32px
 
 .popup-thanks,
-.notfication
+.notfication,
+.popup-timer
   display: grid
   align-content: center
   justify-content: center
@@ -73,3 +74,47 @@
   .popup__content
     justify-items: center
     gap: 16px
+
+
+
+.popup-timer
+  .popup__box
+    padding: 15px
+  .popup__content
+    align-items: center
+    justify-content: center
+    text-align: center
+    position: relative
+    gap: 5px
+  &.open
+    .svg-wrap
+      position: relative
+    .popup-title
+      margin: 0
+
+    @keyframes circletimer
+      0%
+        stroke-dashoffset: 500
+        stroke-dasharray: 500
+      100%
+        stroke-dashoffset: 0
+        stroke-dasharray: 500
+    svg
+      background-color: transparent
+      transform: rotateZ(-90deg)
+      .circle
+        stroke: $orange
+        stroke-width: 16
+        fill: transparent
+        stroke-dashoffset: 500
+        stroke-dasharray: 0
+        animation: 30s circletimer linear
+    .timer
+      position: absolute
+      display: block
+      top: 47%
+      left: 50%
+      transform: translate(-50%, -50%)
+      color: $orange
+      font-size: 42px
+      font-weight: 700
