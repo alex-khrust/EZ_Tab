@@ -829,12 +829,6 @@ body {
   border-bottom-color: #636363 !important;
 }
 
-.disabled .custom-select-items,
-*:disabled .custom-select-items {
-  display: none !important;
-  visibility: hidden;
-}
-
 .decor {
   display: none;
 }

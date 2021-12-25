@@ -4,19 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// hamburger и menu
 	$("#navToggle").click(function () {
-		// $(this).toggleClass("active");
 		$(".header .menu").toggleClass("open");
 		$("body").toggleClass("locked");
 	});
-	// $(".header .menu a").click(function () {
-	// 	$('.header .menu').toggleClass("open");
-	// 	$('#navToggle').toggleClass("active");
-	// });
+	// Скрытие меню по клику за пределами меню
 	$(document).mouseup(function (e) {
 		var block = $(".header .menu");
 		if (!block.is(e.target) && block.has(e.target).length === 0) {
 			block.removeClass("open");
-			// $("#navToggle").removeClass("active");
 			$("body").removeClass("locked");
 		}
 	});
@@ -74,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 
-
 	//Последовательная активация элементов
 	$('.input-file').each(function () {
 		var $input = $(this),
@@ -94,74 +88,82 @@ document.addEventListener('DOMContentLoaded', () => {
 				// Провеврка .select-wrapper на .disabled
 				if ($('.select-wrapper').hasClass('disabled')) {
 					setTimeout(function () {
-						$('.select-wrapper').removeClass('disabled');
-						$('.select-wrapper').addClass('pulse');
-					}, 30000);
-
+						$('.select-wrapper').removeClass('disabled').addClass('pulse');
+					}, 2000);
 				}
 			}
 		});
+
+		// По клику .custom-select-items li - активация submit
+		$('.select-wrapper').on('click', '.custom-select-items li', function(){
+			if ($('.custom-select-items li').hasClass('active')) {
+				$(".select-wrapper").removeClass('pulse');
+				// Провеврка .select-wrapper на .disabled
+				if ($('#btn-submit').hasClass('disabled')) {
+					setTimeout(function () {
+						$('#btn-submit').removeClass('disabled');
+						$('#btn-submit').addClass('pulse');
+					}, 1000);
+				}
+			};
+		});
+
 
 		$input.on('change', function (element) {
 			var fileName = '';
 			if (element.target.value) fileName = element.target.value.split('\\').pop();
 			fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
 
-			// setTimeout(function () {
-			// 	// $('#btn-submit').removeClass('disabled');
-			// 	$('.output-file').addClass('has-file');
-			// }, 1500);
-
-			// Открытие .popup-timer через 30 секунд и запуск таймера
-			setTimeout(function () {
-				$('.popup-timer').addClass('open');
-				$('header, main, footer').addClass('blur');
-				$("body").addClass("locked");
-				
-				// Запуск таймера
-				var timer = $('.timer');
-				function clearCountdown(interval) {
-					clearTimeout(interval);
-				}
-				function countdown() {
-					var countdownBegin = 30;
-					var count = setInterval(function () {
-						console.log(countdownBegin);
-
-						if (countdownBegin <= 0) {
-							timer.html('Done!');
-							clearCountdown(count);
-							// Анимация иконки .output-file и активация .view .btn
-							setTimeout(function () {
-								$(".popup").removeClass("open");
-								$("body").removeClass("locked");
-								$('header, main, footer').removeClass('blur');
+			// Действия по клику submit
+			$('#btn-submit').on('click', function () {
+				$('.select-wrapper').removeClass('pulse');
+				setTimeout(function () {
+					$('#btn-submit').removeClass('pulse');
+				}, 1000);
+				// Открытие .popup-timer через 30 секунд и запуск таймера
+				setTimeout(function () {
+					$('.popup-timer').addClass('open');
+					$('header, main, footer').addClass('blur');
+					$("body").addClass("locked");
+					
+					// Запуск таймера
+					var timer = $('.timer');
+					function clearCountdown(interval) {
+						clearTimeout(interval);
+					}
+					function countdown() {
+						var countdownBegin = 30;
+						var count = setInterval(function () {
+							console.log(countdownBegin);
+		
+							if (countdownBegin <= 0) {
+								timer.html('Done!');
+								clearCountdown(count);
+								// Анимация иконки .output-file и активация .view .btn
 								setTimeout(function () {
-									// $('#btn-submit').removeClass('disabled');
-									$('.view .btn').removeClass('disabled').addClass('pulse');
-									$('.output-file').addClass('has-file');
-								}, 1500);
-							}, 1000);
-						} else {
-							--countdownBegin;
-							timer.html(countdownBegin);
-						}
-					}, 1000);
-				}
-				countdown();
-			}, 3000);
+									$(".popup-timer").removeClass("open");
+									$("body").removeClass("locked");
+									$('header, main, footer').removeClass('blur');
+									setTimeout(function () {
+										$('.output-file').addClass('has-file');
+										setTimeout(function () {
+											$('.view .btn').removeClass('disabled').addClass('pulse');
+										}, 500);
+									}, 1500);
+								}, 1000);
+							} else {
+								--countdownBegin;
+								timer.html(countdownBegin);
+							}
+						}, 1000);
+					}
+					countdown();
+				}, 3000);
+			});
 			
 		});
 	});
-
-	$('.select-wrapper .custom-select-items').on('click', 'li', function () {
-		$('.select-wrapper').remuveClass('pulse');
-		$('#btn-submit').removeClass('disabled');
-		$('#btn-submit').addClass('pulse');
-		// if ($('#btn-submit').hasClass('disabled')) {
-		// }
-	});
-
+	
 
 	//POPUP open/close
 	$(".open-popup").on("click", function (e) {
@@ -172,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		$('header, main, footer').addClass('blur');
 		$("body").addClass("locked");
 	});
-
+	// Скрытие popup по клику за его пределами 
 	$(document).mouseup(function (e) {
 		var popup = $(".popup__box");
 		if (!popup.is(e.target) && popup.has(e.target).length === 0) {
