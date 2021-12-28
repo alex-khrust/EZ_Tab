@@ -725,11 +725,18 @@ body {
   display: none;
 }
 
+.input-box.view .btn {
+  margin-bottom: 114px;
+}
+
 @media (min-width: 768px) {
   .input-box.view .box {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  .input-box.view .btn {
+    margin-bottom: 0;
   }
 }
 
@@ -1120,6 +1127,7 @@ select {
   padding: 8px;
   margin: 8px 0;
   margin-left: auto;
+  margin-right: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

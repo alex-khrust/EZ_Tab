@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 										setTimeout(function () {
 											$('.view .btn').removeClass('disabled').addClass('pulse');
 										}, 500);
-									}, 1500);
+									}, 1000);
 								}, 1000);
 							} else {
 								--countdownBegin;
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						}, 1000);
 					}
 					countdown();
-				}, 3000);
+				}, 2500);
 			});
 			
 		});
