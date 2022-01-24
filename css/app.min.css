@@ -842,15 +842,19 @@ body {
 
 @media (min-width: 768px) {
   .decor {
+    width: calc(100% - 580px);
+    height: 329px;
+    height: clamp(280px, 34vw, 329px);
     display: inline-block;
     position: absolute;
-    top: -90px;
-    left: 48%;
+    top: -80px;
+    left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }
   .decor svg {
-    width: calc(100% + 10%);
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -995,8 +999,8 @@ body {
 
 .pulse {
   color: #fff !important;
-  -webkit-animation: pulse 2s infinite;
-          animation: pulse 2s infinite;
+  -webkit-animation: pulsation 2s infinite;
+          animation: pulsation 2s infinite;
 }
 
 .pulse .custom-select {
@@ -1014,14 +1018,14 @@ body {
           animation: none;
 }
 
-@-webkit-keyframes pulse {
+@-webkit-keyframes pulsation {
   0% {
     -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0.8);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0.8);
   }
   70% {
-    -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(220, 54, 4, 0);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(220, 54, 4, 0);
+    -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 12px rgba(220, 54, 4, 0);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 12px rgba(220, 54, 4, 0);
   }
   100% {
     -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0);
@@ -1029,14 +1033,14 @@ body {
   }
 }
 
-@keyframes pulse {
+@keyframes pulsation {
   0% {
     -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0.8);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0.8);
   }
   70% {
-    -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(220, 54, 4, 0);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(220, 54, 4, 0);
+    -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 12px rgba(220, 54, 4, 0);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 12px rgba(220, 54, 4, 0);
   }
   100% {
     -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0);
@@ -1381,8 +1385,8 @@ select {
   fill: transparent;
   stroke-dashoffset: 500;
   stroke-dasharray: 0;
-  -webkit-animation: 30s circletimer linear;
-          animation: 30s circletimer linear;
+  -webkit-animation: 60s circletimer linear;
+          animation: 60s circletimer linear;
 }
 
 .popup-timer.open .timer {
