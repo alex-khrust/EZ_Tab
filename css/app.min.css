@@ -483,6 +483,10 @@ body {
   }
 }
 
+.header .menu__item:hover a, .header .menu__item.active a {
+  color: #DC3701 !important;
+}
+
 .header .menu__link {
   padding: 10px;
   color: #fff;
@@ -700,14 +704,14 @@ body {
 
 .input-box.input .has-file .file-icon {
   background: url(../images/icons/file-done.svg) no-repeat;
-  -webkit-animation: loading-2 2s linear;
-          animation: loading-2 2s linear;
+  -webkit-animation: loading-2 1s linear;
+          animation: loading-2 1s linear;
 }
 
 @media (min-width: 768px) {
   .input-box.input .has-file .file-icon {
-    -webkit-animation: loading 1.5s linear;
-            animation: loading 1.5s linear;
+    -webkit-animation: loading 1s linear;
+            animation: loading 1s linear;
   }
 }
 
@@ -727,6 +731,11 @@ body {
 
 .input-box.view .btn {
   margin-bottom: 114px;
+}
+
+.input-box.view .btn.pulse {
+  -webkit-animation: pulsation 2s 5;
+          animation: pulsation 2s 5;
 }
 
 @media (min-width: 768px) {
@@ -1385,8 +1394,12 @@ select {
   fill: transparent;
   stroke-dashoffset: 500;
   stroke-dasharray: 0;
-  -webkit-animation: 60s circletimer linear;
-          animation: 60s circletimer linear;
+  -webkit-animation-name: circletimer;
+          animation-name: circletimer;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 60s;
+          animation-duration: 60s;
 }
 
 .popup-timer.open .timer {

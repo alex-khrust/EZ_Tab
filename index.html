@@ -243,11 +243,12 @@
                 <path d="M433.6,111l-2.6-4,2.6-1.8,2.7,4Z" />
                 <path d="M452.6,119.5l-1.2,5.8-1.2,6.5c-.1.6-.4,1-1,.8l-12.6-2.4c.4-2,.7-3.9,1.1-5.8s.5-2.8.8-4.2a2.8,2.8,0,0,0-.5-2.5,25,25,0,0,1-1.6-2.4l2.7-1.7,2,3a2,2,0,0,0,1,.8l10.1,1.9h.4Z" style="fill: rgb(255, 102, 0); stroke: rgb(255, 102, 0);" />
               </g>
-              <script>
+              <!-- <script>
                 // <![CDATA[
                 function svg(){
                   
-                  let svg_ = document.getElementById("svg_")
+                  let svg_ = document.getElementById("svg_");
+                  let seconds = countdownBegin * 8.064516129032258;
                   svg_anim(svg_)
               
                   function svg_anim(elem_id) {
@@ -264,13 +265,13 @@
                           childrens[i].style.fill = "#FF6600"
                           childrens[i].style.stroke = "#FF6600"
                         }
-                      }, i * 483.8709677419355, [i])
+                      }, i * seconds, [i])
                     }
                   }
                   
                 }
                 // ]]>
-              </script>
+              </script> -->
               <!-- childrens[i].style.strokeWidth = "3px" -->
             </svg>
           </div>
@@ -335,7 +336,7 @@
             <svg width="200" height="200">
               <circle class="circle" cx="100" cy="100" r="80"></circle>
             </svg>
-            <span class="timer">60</span>
+            <span class="timer"></span>
           </div>
           <span class="popup-title">Please do not leave this page.</span>
           <span class="popup-title">Thanks for waiting!</span>

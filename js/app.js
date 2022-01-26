@@ -65,6 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //Последовательная активация элементов
+  let timerSeconds = 20; /* Время таймера загрузки файла */
+
   $(".input-file").each(function () {
     var $input = $(this),
       $label = $input.closest(".label-input-file"),
@@ -83,25 +85,29 @@ document.addEventListener("DOMContentLoaded", () => {
         // Провеврка .select-wrapper на .disabled
         if ($(".select-wrapper").hasClass("disabled")) {
           setTimeout(function () {
-            $(".select-wrapper").removeClass("disabled").addClass("pulse");
-          }, 2000);
+            $(".select-wrapper").removeClass("disabled");
+						// $(".select-wrapper").addClass("pulse");
+            setTimeout(function () {
+              $("#btn-submit").removeClass("disabled");
+            }, 250);
+          }, 1000);
         }
       }
     });
 
     // По клику .custom-select-items li - активация submit
-    $(".select-wrapper").on("click", ".custom-select-items li", function () {
-      if ($(".custom-select-items li").hasClass("active")) {
-        $(".select-wrapper").removeClass("pulse");
-        // Провеврка .select-wrapper на .disabled
-        if ($("#btn-submit").hasClass("disabled")) {
-          setTimeout(function () {
-            $("#btn-submit").removeClass("disabled");
-            $("#btn-submit").addClass("pulse");
-          }, 1000);
-        }
-      }
-    });
+    // $(".select-wrapper").on("click", ".custom-select-items li", function () {
+    //   if ($(".custom-select-items li").hasClass("active")) {
+    //     $(".select-wrapper").removeClass("pulse");
+    //     // Провеврка .select-wrapper на .disabled
+    //     if ($("#btn-submit").hasClass("disabled")) {
+    //       setTimeout(function () {
+    //         $("#btn-submit").removeClass("disabled");
+    //         $("#btn-submit").addClass("pulse");
+    //       }, 0);
+    //     }
+    //   }
+    // });
 
     $input.on("change", function (element) {
       var fileName = "";
@@ -110,14 +116,21 @@ document.addEventListener("DOMContentLoaded", () => {
       fileName
         ? $label.addClass("has-file").find(".js-fileName").html(fileName)
         : $label.removeClass("has-file").html(labelVal);
-
+        setTimeout(function () {
+          $("#svg_").removeClass("default");
+        }, 1000);
       // Действия по клику submit
       $("#btn-submit").on("click", function btnSubmit() {
-        $(".select-wrapper").removeClass("pulse");
-        setTimeout(function () {
-          $("#btn-submit").removeClass("pulse");
-        }, 1000);
-
+        // $(".select-wrapper").removeClass("pulse");
+        // setTimeout(function () {
+					//   $("#btn-submit").removeClass("pulse");
+					// }, 1000);
+					$(".select-wrapper").addClass("disabled");
+          $("#btn-submit").addClass("disabled");
+          setTimeout(function () {
+            $("#svg_").addClass("default");
+          }, (timerSeconds * 1000) + 1300);
+				
         const fpPromise = import("https://openfpcdn.io/fingerprintjs/v3")
           .then((FingerprintJS) => FingerprintJS.load())
           .then((fp) => fp.get())
@@ -146,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Access-Control-Allow-Origin": "*",
               },
               beforeSend: function () {
-                // Открытие .popup-timer через 30 секунд и запуск таймера
+                // Открытие .popup-timer
                 setTimeout(function () {
 									$('.popup-timer').addClass('open');
 									$('header, main, footer').addClass('blur');
@@ -154,40 +167,59 @@ document.addEventListener("DOMContentLoaded", () => {
 									
 									// Запуск таймера
 									var timer = $('.timer');
+                  // var countdownBegin = 60;
+                  var countdownBegin = timerSeconds;
+                  timer.html(countdownBegin);
+                  $('svg .circle').css('animationDuration', countdownBegin + 's');
+
 									function clearCountdown(interval) {
-										clearTimeout(interval);
+                    clearTimeout(interval);
 									}
 									function countdown() {
-										var countdownBegin = 60;
 										var count = setInterval(function () {
 											// console.log(countdownBegin);
-						
-											if (countdownBegin <= 0) {
-												timer.html('Done!');
-												clearCountdown(count);
-												// Анимация иконки .output-file и активация .view .btn
-												setTimeout(function () {
-													$(".popup-timer").removeClass("open");
-													$("body").removeClass("locked");
-													$('header, main, footer').removeClass('blur');
-													setTimeout(function () {
+
+                      if (countdownBegin <= 0) {
+                        timer.html('Done!');
+                        clearCountdown(count);
+
+                        $('.popup-title').html('Thanks for waiting!');
+                        $('.popup-title:nth-child(2)').hide();
+                        $('svg .circle').css('animationDuration', '0s');
+
+                        $('.popup-timer').addClass('open');
+                        $('header, main, footer').addClass('blur');
+                        $("body").addClass("locked");
+                          
+                        setTimeout(function () {
+                          $(".popup-timer").removeClass("open");
+                          $("body").removeClass("locked");
+                          $('header, main, footer').removeClass('blur');
+                          setTimeout(function () {
 														$('.output-file').addClass('has-file');
 														setTimeout(function () {
 															$('.view .btn').removeClass('disabled').addClass('pulse');
-														}, 500);
-													}, 500);
-												}, 1000);
+														}, 250);
+													}, 0);
+                        }, 2000);
 											} else {
 												--countdownBegin;
 												timer.html(countdownBegin);
 				
-												$("#svg_").removeClass("default");
+												// $("#svg_").removeClass("default");
 												svg();
-											}
+											};
 										}, 1000);
 									}
 									countdown();
-								}, 2500);
+								}, 0);
+
+                if (countdownBegin >= 15) {
+                  $('.popup-timer').addClass('open');
+                  $('header, main, footer').addClass('blur');
+                  $("body").addClass("locked");
+                };
+
               },
             };
             //Request
@@ -198,6 +230,36 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  // Анимация svg
+  function svg(){
+                  
+    let svg_ = document.getElementById("svg_");
+    let seconds = timerSeconds * 8.064516129032258;
+    svg_anim(svg_)
+
+    function svg_anim(elem_id) {
+      let childrens = [...elem_id.children]
+      let i = childrens.length;
+      while (i--) {
+        setTimeout((i) => {
+          if (i > 0) {
+            childrens[i - 1].style.strokeWidth = ""
+          }
+          if (i === 1) {
+            childrens[i].style.strokeWidth = "10px"
+          } else {
+            childrens[i].style.fill = "#FF6600"
+            childrens[i].style.stroke = "#FF6600"
+          }
+        }, i * seconds, [i])
+      }
+    }
+    
+  };
+
+
+
 
   $(".btn").on("click", function () {
     $(this).removeClass("pulse");

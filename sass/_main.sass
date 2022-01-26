@@ -78,6 +78,12 @@ body
         gap: 12px
         flex-flow: row
     &__item
+      &:hover,
+      &.active
+        a
+          color: #DC3701 !important
+          // color: #fff !important
+          // background: #DC3701
     &__link
       padding: 10px
       color: #fff
@@ -218,9 +224,9 @@ body
   .has-file
     .file-icon
       background: url(../images/icons/file-done.svg) no-repeat
-      animation: loading-2 2s linear
+      animation: loading-2 1s linear
       @media (min-width: 768px)
-        animation: loading 1.5s linear
+        animation: loading 1s linear
     // &:hover
     //   .file-icon
     //     background: url(../images/icons/file-plus.svg) no-repeat
@@ -237,6 +243,8 @@ body
     display: none
   .btn
     margin-bottom: 114px
+    &.pulse
+      animation: pulsation 2s 5
   @media (min-width: 768px)
     .box
       display: flex
