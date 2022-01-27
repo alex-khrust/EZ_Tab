@@ -258,6 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
             childrens[i].style.strokeWidth = "3px"
             childrens[i].style.fill = "#FF6600"
             childrens[i].style.stroke = "#FF6600"
+            childrens[i].style.filter = "drop-shadow(0 3px 5px #FF6600)"
           }
           if (i === 1) {
             childrens[i].style.strokeWidth = "10px"
