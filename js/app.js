@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //Последовательная активация элементов
-  let timerSeconds = 20; /* Время таймера загрузки файла */
+  let timerSeconds = 30; /* Время таймера загрузки файла */
 
   $(".input-file").each(function () {
     var $input = $(this),
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 									countdown();
 
                   // Повторное открытие попапа
-                  if (countdownBegin >= 20) {
+                  if (countdownBegin >= 30) {
                     let cnt = countdownBegin / 2;
                     setTimeout(function () {
                       $('.popup-timer').addClass('open');
