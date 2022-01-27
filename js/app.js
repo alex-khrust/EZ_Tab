@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
 											// console.log(countdownBegin);
 
                       if (countdownBegin <= 0) {
-                        timer.html('Done!').css('fontWeight','600');
+                        timer.html('Done!').css({ 'font-size':'32px'});
                         clearCountdown(count);
 
                         $('.popup-title').html('Thanks for waiting!');
