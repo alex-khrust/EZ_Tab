@@ -77,13 +77,13 @@ body
       @media (min-width: 768px)
         gap: 12px
         flex-flow: row
-    &__item
-      &:hover,
-      &.active
-        a
-          color: #DC3701 !important
-          // color: #fff !important
-          // background: #DC3701
+        .menu__item
+          &:hover,
+          &.active
+            a
+              color: #DC3701 !important
+              // color: #fff !important
+              // background: #DC3701
     &__link
       padding: 10px
       color: #fff
@@ -267,7 +267,7 @@ body
     color: #fff
 .select-wrapper
   // padding: 16px
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1)
   position: relative
   &>span
     position: absolute
@@ -288,7 +288,7 @@ body
   border: 2px solid #DC3701
   color: #fff
   font-weight: bold
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1)
   border-radius: 20px
   &.active,
   &:hover

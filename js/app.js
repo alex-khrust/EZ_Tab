@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   // var countdownBegin = 60;
                   var countdownBegin = timerSeconds;
                   timer.html(countdownBegin);
-                  $('svg .circle').css('animationDuration', countdownBegin + 's');
+                  $('svg .circle').css('animationDuration', countdownBegin + 's').addClass('start-timer');
 
 									function clearCountdown(interval) {
                     clearTimeout(interval);
@@ -207,19 +207,26 @@ document.addEventListener("DOMContentLoaded", () => {
 												timer.html(countdownBegin);
 				
 												// $("#svg_").removeClass("default");
-												svg();
+												svg(); /* Запуск анимации svg */
 											};
 										}, 1000);
 									}
 									countdown();
+
+                  // Повторное открытие попапа
+                  if (countdownBegin >= 20) {
+                    let cnt = countdownBegin / 2;
+                    setTimeout(function () {
+                      $('.popup-timer').addClass('open');
+                      $('header, main, footer').addClass('blur');
+                      $("body").addClass("locked");
+                      // $('svg .circle').css('animationDuration', cnt + 's');
+                      $('.popup-title').html('It takes a little bit longer than expected.');
+                      $('.popup-title:nth-child(2)').html('Please wait a little bit...');
+                    }, cnt * 1000);
+                  };
+
 								}, 0);
-
-                if (countdownBegin >= 15) {
-                  $('.popup-timer').addClass('open');
-                  $('header, main, footer').addClass('blur');
-                  $("body").addClass("locked");
-                };
-
               },
             };
             //Request
@@ -230,6 +237,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  
 
   // Анимация svg
   function svg(){
@@ -244,11 +253,14 @@ document.addEventListener("DOMContentLoaded", () => {
       while (i--) {
         setTimeout((i) => {
           if (i > 0) {
-            childrens[i - 1].style.strokeWidth = ""
+            childrens[i].style.strokeWidth = "3px"
+            childrens[i].style.fill = "#FF6600"
+            childrens[i].style.stroke = "#FF6600"
           }
           if (i === 1) {
             childrens[i].style.strokeWidth = "10px"
           } else {
+            childrens[i].style.strokeWidth = "2px"
             childrens[i].style.fill = "#FF6600"
             childrens[i].style.stroke = "#FF6600"
           }
