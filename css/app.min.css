@@ -559,6 +559,11 @@ body {
 
 .main {
   overflow: hidden;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .main .container {
@@ -569,7 +574,7 @@ body {
 
 @media (min-width: 768px) {
   .main .container {
-    margin: 162px auto 77px;
+    margin: 70px auto 40px;
   }
 }
 
