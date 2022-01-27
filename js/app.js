@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //Последовательная активация элементов
-  let timerSeconds = 30; /* Время таймера загрузки файла */
+  let timerSeconds = 30; /* Время загрузки файла */
 
   $(".input-file").each(function () {
     var $input = $(this),
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
 											// console.log(countdownBegin);
 
                       if (countdownBegin <= 0) {
-                        timer.html('Done!');
+                        timer.html('Done!').css('fontWeight','600');
                         clearCountdown(count);
 
                         $('.popup-title').html('Thanks for waiting!');
@@ -192,6 +192,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         $("body").addClass("locked");
                           
                         setTimeout(function () {
+                          $(".input .label-input-file").addClass("disabled-input-file");
+                          
                           $(".popup-timer").removeClass("open");
                           $("body").removeClass("locked");
                           $('header, main, footer').removeClass('blur');
@@ -221,8 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
                       $('header, main, footer').addClass('blur');
                       $("body").addClass("locked");
                       // $('svg .circle').css('animationDuration', cnt + 's');
-                      $('.popup-title').html('It takes a little bit longer than expected.');
-                      $('.popup-title:nth-child(2)').html('Please wait a little bit...');
+                      $('.popup-title').html('Please wait a little bit...');
+                      $('.popup-title:nth-child(2)').html('It takes a little bit longer than expected.');
                     }, cnt * 1000);
                   };
 
