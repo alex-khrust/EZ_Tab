@@ -718,6 +718,10 @@ body {
   pointer-events: none;
 }
 
+.input-box.input .disabled-input-file .file-icon {
+  background: url(../images/icons/file-done-dark.svg) no-repeat;
+}
+
 .input-box.view .file-icon {
   background: url(../images/icons/file-done-dark.svg) no-repeat;
 }
@@ -1299,7 +1303,7 @@ select {
 }
 
 .popup-title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: normal;
   line-height: 1.5;
   color: #FFFFFF;
@@ -1330,7 +1334,7 @@ select {
 .popup-timer .popup__box {
   width: 100vw;
   max-width: 318px;
-  max-height: 325px;
+  max-height: 318px;
 }
 
 .popup-thanks .popup__content,
