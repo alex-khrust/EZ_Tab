@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;600;700&display=swap");
 *,
@@ -16,6 +23,10 @@
 }
 
 ::-ms-input-placeholder {
+  color: #666;
+}
+
+::-moz-placeholder {
   color: #666;
 }
 
@@ -113,9 +124,11 @@ label {
   visibility: hidden;
   z-index: -1;
   -webkit-transform: scale(0);
-          transform: scale(0);
+          -ms-transform: scale(0);
+      transform: scale(0);
   -webkit-transition: -webkit-transform .2s;
   transition: -webkit-transform .2s;
+  -o-transition: transform .2s;
   transition: transform .2s;
   transition: transform .2s, -webkit-transform .2s;
 }
@@ -128,7 +141,8 @@ label {
   left: 50%;
   top: 13px;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
   background: url("data:image/svg+xml,%3Csvg width='16' height='13' viewBox='0 0 16 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.666504 13H15.3332L7.99984 0.333334L0.666504 13ZM8.6665 11H7.33317V9.66667H8.6665V11ZM8.6665 8.33333H7.33317V5.66667H8.6665V8.33333Z' fill='%23F03738'/%3E%3C/svg%3E%0A") no-repeat;
 }
 
@@ -136,7 +150,8 @@ label {
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale(1);
-          transform: scale(1);
+          -ms-transform: scale(1);
+      transform: scale(1);
 }
 
 .error-inner {
@@ -153,9 +168,11 @@ label {
   visibility: hidden;
   z-index: -1;
   -webkit-transform: scale(0);
-          transform: scale(0);
+          -ms-transform: scale(0);
+      transform: scale(0);
   -webkit-transition: -webkit-transform .2s;
   transition: -webkit-transform .2s;
+  -o-transition: transform .2s;
   transition: transform .2s;
   transition: transform .2s, -webkit-transform .2s;
 }
@@ -168,7 +185,8 @@ label {
   left: 0;
   top: 50%;
   -webkit-transform: translateY(-60%);
-          transform: translateY(-60%);
+          -ms-transform: translateY(-60%);
+      transform: translateY(-60%);
   background: url("data:image/svg+xml,%3Csvg width='16' height='13' viewBox='0 0 16 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.666504 13H15.3332L7.99984 0.333334L0.666504 13ZM8.6665 11H7.33317V9.66667H8.6665V11ZM8.6665 8.33333H7.33317V5.66667H8.6665V8.33333Z' fill='%23F03738'/%3E%3C/svg%3E%0A") no-repeat;
 }
 
@@ -176,7 +194,8 @@ label {
   opacity: 1;
   visibility: visible;
   -webkit-transform: scale(1);
-          transform: scale(1);
+          -ms-transform: scale(1);
+      transform: scale(1);
 }
 
 input[type='checkbox'] {
@@ -194,6 +213,7 @@ input[type='checkbox'] + span {
   border-radius: 5px;
   cursor: pointer;
   -webkit-transition: .2s;
+  -o-transition: .2s;
   transition: .2s;
 }
 
@@ -210,7 +230,8 @@ input[type='checkbox']:checked + span:before {
   top: 6px;
   left: 50%;
   -webkit-transform: rotate(45deg) translateX(-70%);
-          transform: rotate(45deg) translateX(-70%);
+          -ms-transform: rotate(45deg) translateX(-70%);
+      transform: rotate(45deg) translateX(-70%);
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
 }
@@ -228,7 +249,8 @@ input[type='checkbox']:disabled + span:before {
   top: 7px;
   left: 50%;
   -webkit-transform: rotate(45deg) translateX(-70%);
-          transform: rotate(45deg) translateX(-70%);
+          -ms-transform: rotate(45deg) translateX(-70%);
+      transform: rotate(45deg) translateX(-70%);
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
 }
@@ -259,6 +281,7 @@ button,
 .btn,
 input {
   -webkit-transition: .2s ease-in-out;
+  -o-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
   -webkit-tap-highlight-color: transparent !important;
   outline: none !important;
@@ -302,8 +325,10 @@ a {
   border-radius: 2px;
   position: relative;
   -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
   -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
 
@@ -317,8 +342,10 @@ a {
   right: 0;
   will-change: rotate;
   -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
   -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
@@ -338,7 +365,8 @@ a {
   top: 0;
   right: -2px;
   -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
+          -ms-transform: rotate(135deg);
+      transform: rotate(135deg);
   background: #fff;
   width: 110%;
 }
@@ -347,7 +375,8 @@ a {
   bottom: 0;
   right: -2px;
   -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
+          -ms-transform: rotate(-135deg);
+      transform: rotate(-135deg);
   background: #fff;
   width: 110%;
 }
@@ -442,6 +471,7 @@ body {
     right: -200%;
     opacity: 0;
     -webkit-transition: .3s;
+    -o-transition: .3s;
     transition: .3s;
     z-index: 999;
   }
@@ -656,6 +686,7 @@ body {
   max-width: 318px;
   max-height: 318px;
   aspect-ratio: 1 / 1;
+  background: -o-linear-gradient(315deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.25) 0.01%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.25) 0.01%, rgba(255, 255, 255, 0) 100%);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
@@ -696,14 +727,17 @@ body {
   left: 50%;
   background: url(../images/icons/file-plus.svg) no-repeat;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
   -webkit-transition: .3s;
+  -o-transition: .3s;
   transition: .3s;
 }
 
 .input-box.input .label-input-file:hover .file-icon {
   -webkit-transform: translate(-50%, -50%) scale(1.15);
-          transform: translate(-50%, -50%) scale(1.15);
+          -ms-transform: translate(-50%, -50%) scale(1.15);
+      transform: translate(-50%, -50%) scale(1.15);
 }
 
 .input-box.input .has-file .file-icon {
@@ -776,6 +810,7 @@ body {
   background: #35302F;
   border-radius: 20px;
   -webkit-transition: .2s;
+  -o-transition: .2s;
   transition: .2s;
   -webkit-tap-highlight-color: transparent !important;
 }
@@ -871,7 +906,8 @@ body {
     top: -80px;
     left: 50%;
     -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
   }
   .decor svg {
     width: 100%;
@@ -1116,17 +1152,21 @@ select {
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
   -webkit-transform: rotate(45deg) translateY(-50%);
-          transform: rotate(45deg) translateY(-50%);
+          -ms-transform: rotate(45deg) translateY(-50%);
+      transform: rotate(45deg) translateY(-50%);
   -webkit-transition: .4s;
+  -o-transition: .4s;
   transition: .4s;
   -webkit-transform-origin: 50% 0;
-          transform-origin: 50% 0;
+          -ms-transform-origin: 50% 0;
+      transform-origin: 50% 0;
 }
 
 .custom-select.active::after {
   margin-top: 3px;
   -webkit-transform: rotate(-135deg) translateY(-50%);
-          transform: rotate(-135deg) translateY(-50%);
+          -ms-transform: rotate(-135deg) translateY(-50%);
+      transform: rotate(-135deg) translateY(-50%);
 }
 
 .custom-select-items {
@@ -1169,6 +1209,12 @@ select {
 }
 
 .custom-select-items li:hover, .custom-select-items li::-moz-selection, .custom-select-items li.active {
+  background: #DC3701;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.custom-select-items li::-moz-selection {
   background: #DC3701;
   border-radius: 8px;
   color: #fff;
@@ -1235,7 +1281,8 @@ select {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%) scale(0);
-          transform: translate(-50%, -50%) scale(0);
+          -ms-transform: translate(-50%, -50%) scale(0);
+      transform: translate(-50%, -50%) scale(0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1250,12 +1297,14 @@ select {
   opacity: 0;
   overflow: hidden;
   -webkit-transition: .3s;
+  -o-transition: .3s;
   transition: .3s;
 }
 
 .popup.open {
   -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
+          -ms-transform: translate(-50%, -50%) scale(1);
+      transform: translate(-50%, -50%) scale(1);
   z-index: 9999;
   visibility: visible;
   opacity: 1;
@@ -1292,6 +1341,7 @@ select {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  background: -o-linear-gradient(315deg, #272221 0%, #514948 100%);
   background: linear-gradient(135deg, #272221 0%, #514948 100%);
   border-radius: 40px;
   -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
@@ -1378,7 +1428,8 @@ select {
   height: 100%;
   background-color: transparent;
   -webkit-transform: rotateZ(-90deg);
-          transform: rotateZ(-90deg);
+          -ms-transform: rotate(-90deg);
+      transform: rotateZ(-90deg);
 }
 
 .popup-timer.open svg .circle {
@@ -1395,7 +1446,8 @@ select {
   top: 47%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
   color: #DC3701;
   font-size: 42px;
   font-weight: 700;
