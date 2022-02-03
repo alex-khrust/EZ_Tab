@@ -36,8 +36,8 @@
     // min-width: 100vw
     // min-height: 100vh
     max-width: 512px
-    max-height: 460px
-    padding: 64px 25px
+    max-height: 743px
+    padding: 64px
     display: grid
     justify-content: center
     align-items: center
@@ -46,20 +46,38 @@
     border-radius: 40px
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)
     z-index: 99
+    @media (max-height: 768px)
+      height: auto
+      padding: 32px
+    @media (max-width: 450px)
+      height: auto
+      padding: 32px
+
   &__content
     width: 100%
     max-width: 384px
     display: grid
     gap: 32px
+    @media (max-height: 768px)
+      gap: 16px
+    @media (max-width: 450px)
+      gap: 16px
+
   &-title
-    font-size: 14px
+    font-size: 18px
     font-weight: normal
     line-height: 1.5
     color: #FFFFFF
   &-form-join
     gap: 32px
+    @media (max-height: 768px)
+      gap: 16px
+    @media (max-width: 450px)
+      gap: 16px
     .btn
       margin-top: 32px
+      @media (max-width: 450px)
+        margin-top: 16px
 
 .popup-thanks,
 .notfication,

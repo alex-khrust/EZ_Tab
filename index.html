@@ -43,7 +43,7 @@
           <nav>
             <ul class="menu__list">
               <li class="menu__item">
-                <button class="menu__link btn open-popup" id="" data-popup="popup-join">JOIN US</button>
+                <button class="menu__link btn open-popup" id="" data-popup="popup-feedback">Leave feedback</button>
               </li>
               <li class="menu__item">
                 <a href="#about" class="menu__link">About</a>
@@ -296,22 +296,29 @@
   
   
   <!-- popup -->
-  <div class="popup popup-join">
+  <div class="popup popup-feedback">
     <div class="popup__container">
       <div class="popup__box">
         <div class="popup__content">
-          <span class="popup-title">Thank you for joining the EZtab mobile app waitlist!</span>
+          <span class="popup-title">Please feel free to let us know what you think!</span>
           <form class="popup-form-join" action="" method="post">
     
-            <label>
-              <input type="text" name="name" id="" placeholder="Name">
+            <label class="form-item">
+              <span class="label">Name</span>
+              <input type="text" name="name" id="" placeholder="Enter your name">
             </label>
     
-            <label>
-              <input type="email" name="email" id="" placeholder="E-mail">
+            <label class="form-item">
+              <span class="label">E-mail</span>
+              <input type="email" name="email" id="" placeholder="Enter your e-mail">
             </label>
+
+            <div class="form-item">
+              <span class="label">Comment</span>
+              <textarea name="" id="" cols="25" rows="10"></textarea>
+            </div>
     
-            <button class="btn open-popup" type="submit" data-popup="popup-thanks">JOIN</button>
+            <button class="btn open-popup" type="submit" data-popup="popup-thanks">SEND</button>
           </form>
         </div>
       </div>
@@ -330,7 +337,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="popup popup-timer">
     <div class="popup__container">
       <div class="popup__box">
