@@ -669,6 +669,7 @@ body {
   display: -ms-grid;
   display: grid;
   gap: 32px;
+  position: relative;
 }
 
 .box {
@@ -684,6 +685,7 @@ body {
   border-radius: 40px;
   z-index: 2;
   -webkit-tap-highlight-color: transparent !important;
+  position: relative;
 }
 
 .label-input-file {
@@ -771,6 +773,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
 }
 
 .input-box.view .btn {
