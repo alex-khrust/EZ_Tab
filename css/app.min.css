@@ -522,7 +522,7 @@ body {
   .header .menu__link {
     width: 100%;
     min-width: 92px;
-    height: 34px;
+    height: 32px;
     padding: 8px 16px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -545,7 +545,7 @@ body {
   }
   .header .menu__link:hover {
     background: #DC3701;
-    color: #fff !important;
+    color: #fff;
   }
 }
 
@@ -562,7 +562,8 @@ body {
   }
   .menu__list .btn {
     width: 204px;
-    height: 34px;
+    height: auto;
+    padding: 16px;
     margin-left: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -861,8 +862,8 @@ body {
 
 .btn.active, .btn:hover {
   color: #DC3701 !important;
-  background: #fff5f1;
-  border: 2px solid #fff5f1;
+  background: #fff5f1 !important;
+  border: 2px solid #fff5f1 !important;
 }
 
 .btn:active {
@@ -1112,7 +1113,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .hidden {
     display: none;
   }
