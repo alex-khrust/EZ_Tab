@@ -60,10 +60,22 @@ textarea {
 }
 
 textarea {
-  max-height: 200px !important;
+  max-height: 150px !important;
   border: none !important;
   outline: none !important;
   resize: none;
+}
+
+@media (min-width: 768px) {
+  textarea {
+    max-height: 200px !important;
+  }
+}
+
+@media (min-height: 768px) {
+  textarea {
+    max-height: 200px !important;
+  }
 }
 
 textarea {
@@ -1350,27 +1362,27 @@ select {
 }
 
 @media (max-height: 768px) {
-  .popup-feedback .popup_box {
-    height: auto;
-    padding: 32px;
+  .popup-feedback .popup__box {
+    height: auto !important;
+    padding: 32px !important;
   }
 }
 
 @media (max-width: 450px) {
-  .popup-feedback .popup_box {
-    height: auto;
-    padding: 32px;
+  .popup-feedback .popup__box {
+    height: auto !important;
+    padding: 32px !important;
   }
 }
 
 @media (max-height: 768px) {
-  .popup-feedback .popup_content {
+  .popup-feedback .popup__content {
     gap: 16px;
   }
 }
 
 @media (max-width: 450px) {
-  .popup-feedback .popup_content {
+  .popup-feedback .popup__content {
     gap: 16px;
   }
 }
