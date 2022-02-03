@@ -450,7 +450,7 @@ body {
 
 @media (max-width: 767px) {
   .header .menu {
-    width: 124px;
+    width: auto;
     height: auto;
     padding: 16px;
     position: fixed;
@@ -466,6 +466,9 @@ body {
   .header .menu.open {
     right: 20px;
     opacity: 1;
+  }
+  .header .menu .menu__item {
+    width: 100%;
   }
 }
 
@@ -511,7 +514,7 @@ body {
 
 @media (max-width: 767px) {
   .header .menu__link {
-    width: auto;
+    width: 100%;
     min-width: 92px;
     height: 34px;
     padding: 8px 16px;
