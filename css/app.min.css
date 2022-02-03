@@ -754,7 +754,7 @@ body {
 }
 
 .input-box.view .has-file .file-icon {
-  background: url(../images/icons/file-done.svg) no-repeat;
+  background: url(../images/icons/file-done-cube.svg) no-repeat;
   -webkit-animation: zoom ease-in-out 1s;
           animation: zoom ease-in-out 1s;
 }
@@ -1329,17 +1329,33 @@ select {
 }
 
 @media (max-height: 768px) {
-  .popup__box {
+  .popup-feedback .popup_box {
     height: auto;
     padding: 32px;
   }
 }
 
 @media (max-width: 450px) {
-  .popup__box {
+  .popup-feedback .popup_box {
     height: auto;
     padding: 32px;
   }
+}
+
+@media (max-height: 768px) {
+  .popup-feedback .popup_content {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  .popup-feedback .popup_content {
+    gap: 16px;
+  }
+}
+
+.popup-feedback .popup-title {
+  font-size: 18px;
 }
 
 .popup__content {
@@ -1350,20 +1366,8 @@ select {
   gap: 32px;
 }
 
-@media (max-height: 768px) {
-  .popup__content {
-    gap: 16px;
-  }
-}
-
-@media (max-width: 450px) {
-  .popup__content {
-    gap: 16px;
-  }
-}
-
 .popup-title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: normal;
   line-height: 1.5;
   color: #FFFFFF;
@@ -1386,6 +1390,7 @@ select {
 }
 
 .popup-form-join .btn {
+  height: auto;
   margin-top: 32px;
 }
 
