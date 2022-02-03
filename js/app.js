@@ -127,6 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
 					// }, 1000);
 					$(".select-wrapper").addClass("disabled");
           $("#btn-submit").addClass("disabled");
+          $('.input-box.input').addClass('hidden');
+          $('.input-box.view .box').addClass('visible');
           setTimeout(function () {
             $("#svg_").addClass("default");
           }, (timerSeconds * 1000) + 1300);

@@ -759,10 +759,6 @@ body {
           animation: zoom ease-in-out 1s;
 }
 
-.input-box.view .box {
-  display: none;
-}
-
 .input-box.view .output-file {
   width: 100%;
   height: 100%;
@@ -1102,6 +1098,20 @@ body {
   100% {
     -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(220, 54, 4, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hidden {
+    display: none;
+  }
+  .input-box.view .box {
+    display: none;
+  }
+  .visible {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
   }
 }
 
