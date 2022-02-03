@@ -508,7 +508,7 @@ body {
 }
 
 .header .menu__link {
-  padding: 10px;
+  padding: 16px;
   color: #fff;
 }
 
@@ -574,7 +574,8 @@ body {
     border-radius: 20px;
   }
   .menu__list .btn:hover {
-    background: #fff;
+    background: #fff5f1;
+    border: 2px solid #fff5f1;
   }
 }
 
@@ -854,7 +855,8 @@ body {
 
 .btn.active, .btn:hover {
   color: #DC3701 !important;
-  background: #fff;
+  background: #fff5f1;
+  border: 2px solid #fff5f1;
 }
 
 .btn:active {
