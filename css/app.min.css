@@ -750,11 +750,11 @@ body {
 }
 
 .input-box.view .file-icon {
-  background: url(../images/icons/file-done-dark.svg) no-repeat;
+  background: url(../images/icons/file-done-dark.svg) no-repeat center;
 }
 
 .input-box.view .has-file .file-icon {
-  background: url(../images/icons/file-done-cube.svg) no-repeat;
+  background: url(../images/icons/file-done-cube.svg) no-repeat center;
   -webkit-animation: zoom ease-in-out 1s;
           animation: zoom ease-in-out 1s;
 }
@@ -769,6 +769,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .input-box.view .btn {
