@@ -69,6 +69,10 @@
     max-width: 384px
     display: grid
     gap: 32px
+    position: absolute !important
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
 
   &-title
     font-size: 14px
@@ -95,9 +99,11 @@
   align-content: center
   justify-content: center
   .popup__box
-    width: 100vw
+    width: calc(100vw - 50px)
     max-width: 318px
     max-height: 318px
+    // padding-top: 100% !important
+    // object-fit: contain
     // max-height: 325px
   .popup__content
     justify-items: center

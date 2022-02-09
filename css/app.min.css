@@ -708,6 +708,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .input-box.input .label-input-file {
@@ -1398,6 +1399,11 @@ select {
   display: -ms-grid;
   display: grid;
   gap: 32px;
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .popup-title {
@@ -1449,7 +1455,7 @@ select {
 .popup-thanks .popup__box,
 .notfication .popup__box,
 .popup-timer .popup__box {
-  width: 100vw;
+  width: calc(100vw - 50px);
   max-width: 318px;
   max-height: 318px;
 }
