@@ -1,18 +1,18 @@
 // Custom JS
 document.addEventListener("DOMContentLoaded", () => {
   // hamburger и menu
-  $("#navToggle").click(function () {
-    $(".header .menu").toggleClass("open");
-    $("body").toggleClass("locked");
-  });
+  // $("#navToggle").click(function () {
+  //   $(".header .menu").toggleClass("open");
+  //   $("body").toggleClass("locked");
+  // });
   // Скрытие меню по клику за пределами меню
-  $(document).mouseup(function (e) {
-    var block = $(".header .menu");
-    if (!block.is(e.target) && block.has(e.target).length === 0) {
-      block.removeClass("open");
-      $("body").removeClass("locked");
-    }
-  });
+  // $(document).mouseup(function (e) {
+  //   var block = $(".header .menu");
+  //   if (!block.is(e.target) && block.has(e.target).length === 0) {
+  //     block.removeClass("open");
+  //     $("body").removeClass("locked");
+  //   }
+  // });
 
   // Кастомный select
   $("select").each(function (index) {

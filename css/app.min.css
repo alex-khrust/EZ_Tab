@@ -294,88 +294,6 @@ a {
   font-weight: bold;
 }
 
-.navBurger {
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  outline: none;
-  background: transparent;
-  border: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  cursor: pointer;
-}
-
-@media (min-width: 768px) {
-  .navBurger {
-    display: none;
-  }
-}
-
-.navBurger span {
-  width: 40px;
-  height: 4px;
-  background: #fff;
-  border-radius: 2px;
-  position: relative;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-
-.navBurger span:before, .navBurger span:after {
-  content: "";
-  position: absolute;
-  background: #fff;
-  border-radius: 2px;
-  height: 4px;
-  width: 100%;
-  right: 0;
-  will-change: rotate;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.navBurger span:before {
-  top: -10px;
-}
-
-.navBurger span:after {
-  bottom: -10px;
-}
-
-.navBurger.active span {
-  background: transparent !important;
-}
-
-.navBurger.active span:before {
-  top: 0;
-  right: -2px;
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
-  background: #fff;
-  width: 110%;
-}
-
-.navBurger.active span:after {
-  bottom: 0;
-  right: -2px;
-  -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
-  background: #fff;
-  width: 110%;
-}
-
 html {
   width: 100%;
   height: auto;
@@ -409,7 +327,7 @@ body {
 
 .header__inner {
   max-width: 1344px;
-  padding: 32px 0;
+  padding: 26px 0;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -425,6 +343,7 @@ body {
 
 @media (min-width: 768px) {
   .header__inner {
+    padding: 32px 0;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -454,30 +373,6 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  .header .menu {
-    width: auto;
-    height: auto;
-    padding: 16px;
-    position: fixed;
-    background: #272221;
-    border-radius: 10px;
-    top: 38px;
-    right: -200%;
-    opacity: 0;
-    -webkit-transition: .3s;
-    transition: .3s;
-    z-index: 999;
-  }
-  .header .menu.open {
-    right: 20px;
-    opacity: 1;
-  }
-  .header .menu .menu__item {
-    width: 100%;
-  }
-}
-
 .header .menu__list {
   padding: none;
   -webkit-padding-start: 0;
@@ -493,24 +388,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  gap: 32px;
-}
-
-@media (min-width: 768px) {
-  .header .menu__list {
-    gap: 12px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row;
-            flex-flow: row;
-  }
-  .header .menu__list .menu__item:hover a, .header .menu__list .menu__item.active a {
-    color: #DC3701 !important;
-  }
 }
 
 .header .menu__link {
@@ -521,9 +398,9 @@ body {
 @media (max-width: 767px) {
   .header .menu__link {
     width: 100%;
-    min-width: 92px;
-    height: 32px;
-    padding: 8px 16px;
+    min-width: 92px !important;
+    height: 32px !important;
+    padding: 8px 16px !important;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -540,7 +417,7 @@ body {
     background: #464241;
     -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+    border-radius: 10px !important;
     white-space: nowrap;
   }
   .header .menu__link:hover {
@@ -553,37 +430,37 @@ body {
   background: #DC3701;
 }
 
-@media (min-width: 768px) {
-  .menu__list {
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: reverse !important;
-        -ms-flex-flow: row-reverse !important;
-            flex-flow: row-reverse !important;
-  }
-  .menu__list .btn {
-    width: 204px;
-    height: auto;
-    padding: 16px;
-    margin-left: 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    background: #DC3701;
-    -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-    border: 2px solid #DC3701;
-    border-radius: 20px;
-  }
-  .menu__list .btn:hover {
-    background: #fff5f1;
-    border: 2px solid #fff5f1;
-  }
+.menu__list {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: reverse !important;
+      -ms-flex-flow: row-reverse !important;
+          flex-flow: row-reverse !important;
+}
+
+.menu__list .btn {
+  width: 204px;
+  height: auto;
+  padding: 16px;
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #DC3701;
+  -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border: 2px solid #DC3701;
+  border-radius: 20px;
+}
+
+.menu__list .btn:hover {
+  background: #fff5f1;
+  border: 2px solid #fff5f1;
 }
 
 .main {
@@ -1401,11 +1278,6 @@ select {
   display: -ms-grid;
   display: grid;
   gap: 32px;
-  position: absolute !important;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .popup-title {
@@ -1467,6 +1339,11 @@ select {
 .popup-timer .popup__content {
   justify-items: center;
   gap: 16px;
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .popup-timer .popup__box {

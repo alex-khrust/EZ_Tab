@@ -25,13 +25,14 @@ body
   z-index: 99
   &__inner
     max-width: 1344px
-    padding: 32px 0
+    padding: 26px 0
     margin: 0 auto
     display: flex
     align-items: center
     justify-content: flex-end
     overflow-x: hidden
     @media (min-width: 768px)
+      padding: 32px 0
       justify-content: space-between
   .logo
     display: none
@@ -47,24 +48,24 @@ body
       display: flex
 
   .menu
-    @media (max-width: 767px)
-      width: auto
-      height: auto
-      padding: 16px
-      position: fixed
-      background: #272221
-      border-radius: 10px
-      top: 38px
-      right: -200%
-      opacity: 0
-      transition: .3s
-      z-index: 999
-      &.open
-        right: 20px
-        opacity: 1
+    // @media (max-width: 767px)
+    //   width: auto
+    //   height: auto
+    //   padding: 16px
+    //   position: fixed
+    //   background: #272221
+    //   border-radius: 10px
+    //   top: 38px
+    //   right: -200%
+    //   opacity: 0
+    //   transition: .3s
+    //   z-index: 999
+    //   &.open
+    //     right: 20px
+    //     opacity: 1
         
-      .menu__item
-        width: 100%
+    //   .menu__item
+    //     width: 100%
 
     nav
     &__list
@@ -75,33 +76,33 @@ body
       display: flex
       align-items: center
       justify-content: center
-      flex-flow: column
-      gap: 32px
-      @media (min-width: 768px)
-        gap: 12px
-        flex-flow: row
-        .menu__item
-          &:hover,
-          &.active
-            a
-              color: #DC3701 !important
-              // color: #fff !important
-              // background: #DC3701
+    //   flex-flow: column
+    //   gap: 32px
+    //   @media (min-width: 768px)
+    //     gap: 12px
+    //     flex-flow: row
+    //     .menu__item
+    //       &:hover,
+    //       &.active
+    //         a
+    //           color: #DC3701 !important
+    //           // color: #fff !important
+    //           // background: #DC3701
     &__link
       padding: 16px
       color: #fff
       @media (max-width: 767px)
         width: 100%
-        min-width: 92px
-        height: 32px
-        padding: 8px 16px
+        min-width: 92px !important
+        height: 32px !important
+        padding: 8px 16px !important
         display: flex
         flex-direction: row
         justify-content: center
         align-items: center
         background: #464241
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)
-        border-radius: 10px
+        border-radius: 10px !important
         white-space: nowrap
         &:hover
           background: #DC3701
@@ -109,24 +110,24 @@ body
     .btn
       background: #DC3701
 
-@media (min-width: 768px)
-  .menu__list
-    flex-flow: row-reverse !important
-    .btn
-      width: 204px
-      height: auto
-      padding: 16px
-      margin-left: 10px
-      display: flex
-      align-items: center
-      justify-content: center
-      background: #DC3701
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)
-      border: 2px solid #DC3701
-      border-radius: 20px
-      &:hover
-        background: #fff5f1
-        border: 2px solid #fff5f1
+// @media (min-width: 768px)
+.menu__list
+  flex-flow: row-reverse !important
+  .btn
+    width: 204px
+    height: auto
+    padding: 16px
+    margin-left: 10px
+    display: flex
+    align-items: center
+    justify-content: center
+    background: #DC3701
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)
+    border: 2px solid #DC3701
+    border-radius: 20px
+    &:hover
+      background: #fff5f1
+      border: 2px solid #fff5f1
 
 
 
