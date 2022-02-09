@@ -188,7 +188,9 @@ body
   height: 100%
   max-width: 318px
   max-height: 318px
-  aspect-ratio: 1 / 1
+  // aspect-ratio: 1 / 1
+  padding-top: 100%
+  object-fit: contain 
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.25) 0.01%, rgba(255, 255, 255, 0) 100%)
   backdrop-filter: blur(2px)
   border: 2px solid rgba(255, 255, 255, 0.1)
@@ -203,7 +205,10 @@ body
   height: 100%
   display: flex
   border-radius: 40px
-  position: relative
+  // position: relative
+  position: absolute
+  top: 0
+  left: 0
   
 .input-box.input
   .label-input-file
@@ -259,7 +264,10 @@ body
     display: flex
     align-items: center
     justify-content: center
-    position: relative
+    // position: relative
+    position: absolute
+    top: 0
+    left: 0
   .btn
     margin-bottom: 114px
     &.pulse

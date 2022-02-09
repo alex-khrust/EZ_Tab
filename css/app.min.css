@@ -685,7 +685,9 @@ body {
   height: 100%;
   max-width: 318px;
   max-height: 318px;
-  aspect-ratio: 1 / 1;
+  padding-top: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.25) 0.01%, rgba(255, 255, 255, 0) 100%);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
@@ -703,7 +705,9 @@ body {
   display: -ms-flexbox;
   display: flex;
   border-radius: 40px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .input-box.input .label-input-file {
@@ -781,7 +785,9 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .input-box.view .btn {
@@ -1149,11 +1155,11 @@ select {
 }
 
 .custom-select {
-  width: 100%;
+  width: 146px;
   height: 50px;
   line-height: 50px;
   padding: 0;
-  padding-left: 168px;
+  float: right;
   overflow: hidden;
   background: transparent;
   color: #fff;
